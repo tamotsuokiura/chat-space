@@ -19,9 +19,9 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|
-|mail|string|
-|password|string|
+|nickname|string|null: false｜
+|mail|string|null: false｜
+|password|string|null: false｜
 
 ### Association
 - has_many :messages
@@ -33,7 +33,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|
+|name|string|null: false｜
 
 ### Association
 - has_many :messages
