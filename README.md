@@ -6,7 +6,6 @@
 |------|----|-------|
 |body|text|
 |image|string|
-|create
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
 
