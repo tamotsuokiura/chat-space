@@ -1,0 +1,21 @@
+.Side-bar
+  .Side-bar__User-name
+    .Side-bar__User-name__Top-items
+      .Side-bar__User-name__Top-items--name
+        名前
+      .Side-bar__User-name__Top-items--icons
+        = link_to "https://www.yahoo.co.jp/" do
+          = icon('far', 'edit', class: 'user-name-icon')
+        = link_to "https://www.facebook.com/" do
+          = icon('fas', 'cog', class: 'user-name-icon')
+
+  .Side-bar__Group-list
+    %ul.Side-bar__Group-list__Container
+      %li.Side-bar__Group-list__Container__Box
+        %p.Side-bar__Group-list__Container__Box__group-name グループネーム
+        %p.Side-bar__Group-list__Container__Box__last-message ラストメッセージ
+      %li.Side-bar__Group-list__Container__Box
+        %p.Side-bar__Group-list__Container__Box__group-name グループネーム
+        %p.Side-bar__Group-list__Container__Box__last-message ラストメッセージ
+
+    
