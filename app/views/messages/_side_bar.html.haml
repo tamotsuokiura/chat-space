@@ -2,12 +2,12 @@
   .Side-bar__User-name
     .Side-bar__User-name__Top-items
       .Side-bar__User-name__Top-items--name
-        名前
+        = current_user.name
       .Side-bar__User-name__Top-items--icons
         = link_to "https://www.yahoo.co.jp/" do
           = icon('far', 'edit', class: 'user-name-icon')
           %span<>
-        = link_to "https://www.facebook.com/" do
+        = link_to edit_user_path(current_user.id) do
           = icon('fas', 'cog', class: 'user-name-icon')
           %span<>
 
