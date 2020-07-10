@@ -14,11 +14,11 @@
   .Side-bar__Group-list
     - current_user.groups.each do |group|
       .Side-bar__Group-list__Box
-        = link_to "#" do
+        = link_to group_messages_path(group.id) do
           .Side-bar__Group-list__Box__group-name
             = group.name
           .Side-bar__Group-list__Box__last-message
-            ラストメッセージ
+            = group.show_last_message
       
 
     
