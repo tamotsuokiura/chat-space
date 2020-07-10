@@ -3,45 +3,27 @@
     .Chat-main__Group-info__Container
       .Chat-main__Group-info__Container__Left
         .Chat-main__Group-info__Container__Left__group-name
-          グループネーム
+          = @group.name
         %ul.Chat-main__Group-info__Container__Left__lists
           Member :
-          %li.Chat-main__Group-info__Container__Left__lists__list
-            名前
-          %li.Chat-main__Group-info__Container__Left__lists__list
-            名前
+          - @group.users.each do |u|
+            %li.Chat-main__Group-info__Container__Left__lists__list
+              = u.name
       .Chat-main__Group-info__Container__Right
-        = link_to "#" ,class: "Chat-main__Group-info__Container__Right__edit-btn" do
+        = link_to edit_group_path(@group.id) ,class: "Chat-main__Group-info__Container__Right__edit-btn" do
           Edit
 
   .Chat-main__Message-list
-    %ul.Chat-main__Message-list__Container
-      %li.Chat-main__Message-list__Container__Box
-        .Chat-main__Message-list__Container__Box__Info
-          .Chat-main__Message-list__Container__Box__Info--name
-            名前
-          .Chat-main__Message-list__Container__Box__Info--time
-            2023/3/5（wed） 22:23:02
-        .Chat-main__Message-list__Container__Box__message
-          メッセージ
-      %li.Chat-main__Message-list__Container__Box
-        .Chat-main__Message-list__Container__Box__Info
-          .Chat-main__Message-list__Container__Box__Info--name
-            名前
-          .Chat-main__Message-list__Container__Box__Info--time
-            2023/3/5（wed） 22:23:02
-        .Chat-main__Message-list__Container__Box__message
-          メッセージ
+    = render @messages
+    
 
 
   .Chat-main__Message-form
-    %form{ action: "/", method: "post"}
+    = form_with model: [@group, @message], local: true do |f|
       .Chat-main__Message-form__Container
         .Chat-main__Message-form__Container__Field
-          %input{ type: "text", class: "Chat-main__Message-form__Container__Field__text", name: "text", placeholder: "type amessage"}
-          %label{ class: "Chat-main__Message-form__Container__Field__image"}
+          = f.text_field :content, class: "Chat-main__Message-form__Container__Field__text", placeholder: "type a message"
+          = f.label :image, class: "Chat-main__Message-form__Container__Field__image" do
             = icon('far', 'image')
-            %input{ type: "file", class: "Chat-main__Message-form__Container__Field__image__btn"}
-        %input{ type: "submit", value: "Send", class: "Chat-main__Message-form__Container__submit"}
-        
-        
+            = f.file_field :image, class: "Chat-main__Message-form__Container__Field__image__btn"
+        = f.submit 'Send', class: "Chat-main__Message-form__Container__submit"

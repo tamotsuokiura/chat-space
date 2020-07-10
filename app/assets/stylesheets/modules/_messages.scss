@@ -101,6 +101,7 @@
   &__Message-list{
     height: calc(100vh - 190px);
     background-color: #fafafa;
+    overflow: scroll;
     &__Container{
       padding-top: 35px;
       margin-left: 40px;
