@@ -14,12 +14,13 @@
           Edit
 
   .Chat-main__Message-list
-    = render @messages
+    .Chat-main__Message-list__Container
+      = render @messages
     
 
 
   .Chat-main__Message-form
-    = form_with model: [@group, @message], local: true do |f|
+    = form_with model: [@group, @message], html:{id: "form"}, local: true do |f|
       .Chat-main__Message-form__Container
         .Chat-main__Message-form__Container__Field
           = f.text_field :content, class: "Chat-main__Message-form__Container__Field__text", placeholder: "type a message"
