@@ -36,7 +36,6 @@
   &__Group-list{
     height: calc(100% - 100px);
     background-color: #2f3e51;
-    overflow: scroll;
     &__Box{
       margin: 0 20px;
       padding: 20px 0 40px 0;
@@ -102,11 +101,10 @@
   &__Message-list{
     height: calc(100vh - 190px);
     background-color: #fafafa;
+    overflow: scroll;
     &__Container{
       padding-top: 35px;
       margin-left: 40px;
-      overflow: scroll;
-      height: 100%;
       &__Box{
         margin-bottom: 46px;
         
