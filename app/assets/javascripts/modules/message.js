@@ -1,7 +1,7 @@
 $(function(){
   function buildHTML(data){
     if (data.image){
-      let html = `<div class="Chat-main__Message-list__Container__Box">
+      let html = `<div class="Chat-main__Message-list__Container__Box" data-message-id=${data.id}>
                     <div class="Chat-main__Message-list__Container__Box__Info">
                       <div class="Chat-main__Message-list__Container__Box__Info--name">
                         ${data.user_name}
@@ -17,7 +17,7 @@ $(function(){
                   </div>`
       return html;
     }else{
-      let html = `<div class="Chat-main__Message-list__Container__Box">
+      let html = `<div class="Chat-main__Message-list__Container__Box" data-message-id=${data.id}>
                     <div class="Chat-main__Message-list__Container__Box__Info">
                       <div class="Chat-main__Message-list__Container__Box__Info--name">
                         ${data.user_name}
@@ -56,6 +56,6 @@ $(function(){
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");
-  });
+    });
   })
 });
